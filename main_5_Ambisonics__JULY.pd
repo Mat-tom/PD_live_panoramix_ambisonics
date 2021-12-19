@@ -1,0 +1,443 @@
+#N struct 1609-cell float x float y float cellsize float color;
+#N canvas 0 1103 1920 1005 12;
+#X declare -lib else;
+#X declare -path abs;
+#X obj 1001 183 lfo 1;
+#X obj 29 304 braids~;
+#X obj 26 44 tgl 60 0 syncstart empty Start_Seqs 0 -7 0 10 -262144
+-1 -1 0 1;
+#X obj 93 44 bng 50 250 50 0 SAVE-S empty Save_Parameters 0 -7 0 10
+-262144 -1 -1;
+#X obj 30 183 eucl-seq 1;
+#X obj 26 624 braids~ 1;
+#X obj 365 332 first_granulator;
+#X obj 29 453 throw~ braids1;
+#X obj 1513 534 clouds~;
+#X obj 1513 516 catch~ clouds;
+#N canvas 116 103 1764 857 control 0;
+#X obj 763 23 catch~ braids1;
+#X obj 514 234 throw~ clouds;
+#X obj 6 8 tgl 40 0 empty empty DSP 12 20 0 10 -262144 -1 -1 0 1;
+#X msg 31 387 \; pd dsp \$1 \;;
+#X floatatom 31 722 0 0 0 0 - - -;
+#X obj 31 634 cputime;
+#X obj 31 494 loadbang;
+#X obj 31 578 metro 1000;
+#X msg 31 522 1;
+#X floatatom 31 550 0 0 0 0 - - -;
+#X obj 31 606 t b b;
+#X obj 31 694 * 0.1;
+#X obj 31 663 int;
+#X text 76 550 <-- on/off;
+#X obj 148 721 s CPU;
+#X floatatom 7 55 5 0 0 3 CPU% CPU -;
+#X obj 679 33 r matrix;
+#X obj 1319 11 catch~ clouds1;
+#X obj 67 18 hsl 128 15 0 1 0 0 empty empty vol_1/2 -2 -8 0 10 -257985
+-1 -1 6350 1;
+#X obj 319 719 *~;
+#X obj 351 719 *~;
+#X obj 874 37 catch~ braids2;
+#X obj 687 202 cyclone/matrix~ 12 22, f 142;
+#X text 368 33 6 Instruments + 6 Effects = 12 Inputs;
+#X text 369 53 6 Effects + 16 Output = 22 Outputs;
+#X obj 402 695 *~;
+#X obj 431 694 *~;
+#X obj 630 608 *~;
+#X obj 665 629 *~;
+#X obj 427 780 dac~ 1 2 3 4 5 6 7 8 9 10 11 12 13 14 15 16, f 130
+;
+#X obj 797 619 *~;
+#X obj 840 638 *~;
+#X obj 914 635 *~;
+#X obj 957 654 *~;
+#X obj 1036 638 *~;
+#X obj 1079 657 *~;
+#X obj 1172 660 *~;
+#X obj 1222 665 *~;
+#X obj 1272 662 *~;
+#X obj 1322 667 *~;
+#X obj 203 17 hsl 128 15 0 1 0 0 empty empty vol_3/4 -2 -8 0 10 -257985
+-1 -1 6350 1;
+#X obj 68 47 hsl 128 15 0 1 0 0 empty empty vol_5/6 -2 -8 0 10 -257985
+-1 -1 6350 1;
+#X obj 206 47 hsl 128 15 0 1 0 0 empty empty vol_7/8 -2 -8 0 10 -257985
+-1 -1 6350 1;
+#X obj 66 78 hsl 128 15 0 1 0 0 empty empty vol_9/10 -2 -8 0 10 -257985
+-1 -1 6350 1;
+#X obj 206 80 hsl 128 15 0 1 0 0 empty empty vol_11/12 -2 -8 0 10 -257985
+-1 -1 6350 1;
+#X obj 65 108 hsl 128 15 0 1 0 0 empty empty vol_13/14 -2 -8 0 10 -257985
+-1 -1 6350 1;
+#X obj 205 109 hsl 128 15 0 1 0 0 empty empty vol_15/16 -2 -8 0 10
+-257985 -1 -1 6350 1;
+#X obj 922 81 catch~ physical_1;
+#X obj 1166 12 catch~ wavetable;
+#X obj 726 250 throw~ rings;
+#X obj 1433 66 catch~ rings1;
+#X text 379 75 22 Outputs via Loopback to Panoramix for doing the Ambisonics
+Spatialization;
+#X obj 996 126 catch~ grains1;
+#X obj 848 248 throw~ clouds2;
+#X obj 608 283 throw~ fb_delay;
+#X obj 1506 98 catch~ clouds3;
+#X obj 1289 98 catch~ fb_delay1;
+#X obj 1156 72 catch~ grains2;
+#X obj 4 92 nbx 3 18 0 1 0 0 empty empty VOL 5 30 0 14 -262144 -1 -1
+0.5 256;
+#X msg 83 231 set \$1;
+#X obj 1101 262 throw~ freeze0;
+#X obj 1592 140 catch~ freeze1;
+#X obj 1494 578 throw~ clouds4;
+#X obj 1633 72 catch~ clouds5;
+#X connect 0 0 22 0;
+#X connect 2 0 3 0;
+#X connect 4 0 14 0;
+#X connect 5 0 12 0;
+#X connect 6 0 8 0;
+#X connect 7 0 10 0;
+#X connect 8 0 9 0;
+#X connect 9 0 7 0;
+#X connect 10 0 5 0;
+#X connect 10 1 5 1;
+#X connect 11 0 4 0;
+#X connect 12 0 11 0;
+#X connect 16 0 22 0;
+#X connect 17 0 22 6;
+#X connect 18 0 19 1;
+#X connect 18 0 20 1;
+#X connect 19 0 29 0;
+#X connect 20 0 29 1;
+#X connect 21 0 22 1;
+#X connect 22 0 1 0;
+#X connect 22 1 54 0;
+#X connect 22 2 49 0;
+#X connect 22 3 53 0;
+#X connect 22 4 60 0;
+#X connect 22 5 62 0;
+#X connect 22 6 19 0;
+#X connect 22 7 20 0;
+#X connect 22 8 25 0;
+#X connect 22 9 26 0;
+#X connect 22 10 27 0;
+#X connect 22 11 28 0;
+#X connect 22 12 30 0;
+#X connect 22 13 31 0;
+#X connect 22 14 32 0;
+#X connect 22 15 33 0;
+#X connect 22 16 34 0;
+#X connect 22 17 35 0;
+#X connect 22 18 36 0;
+#X connect 22 19 37 0;
+#X connect 22 20 38 0;
+#X connect 22 21 39 0;
+#X connect 25 0 29 2;
+#X connect 26 0 29 3;
+#X connect 27 0 29 4;
+#X connect 28 0 29 5;
+#X connect 30 0 29 6;
+#X connect 31 0 29 7;
+#X connect 32 0 29 8;
+#X connect 33 0 29 9;
+#X connect 34 0 29 10;
+#X connect 35 0 29 11;
+#X connect 36 0 29 12;
+#X connect 37 0 29 13;
+#X connect 38 0 29 14;
+#X connect 39 0 29 15;
+#X connect 40 0 25 1;
+#X connect 40 0 26 1;
+#X connect 41 0 27 1;
+#X connect 41 0 28 1;
+#X connect 42 0 30 1;
+#X connect 42 0 31 1;
+#X connect 43 0 32 1;
+#X connect 43 0 33 1;
+#X connect 44 0 34 1;
+#X connect 44 0 35 1;
+#X connect 45 0 36 1;
+#X connect 45 0 37 1;
+#X connect 46 0 38 1;
+#X connect 46 0 39 1;
+#X connect 47 0 22 2;
+#X connect 48 0 22 5;
+#X connect 50 0 22 8;
+#X connect 52 0 22 3;
+#X connect 55 0 22 9;
+#X connect 56 0 22 7;
+#X connect 57 0 22 4;
+#X connect 58 0 59 0;
+#X connect 59 0 18 0;
+#X connect 59 0 41 0;
+#X connect 59 0 43 0;
+#X connect 59 0 45 0;
+#X connect 59 0 40 0;
+#X connect 59 0 42 0;
+#X connect 59 0 44 0;
+#X connect 59 0 46 0;
+#X connect 61 0 22 10;
+#X connect 63 0 22 11;
+#X coords 0 -1 1 1 340 130 2 0 0;
+#X restore 195 32 pd control;
+#X obj 1514 654 throw~ clouds1;
+#X obj 1000 155 else/note 425 20 Menlo empty 0 0 0 0 0 255 255 255
+0 0 LFO 1 --> Braids 1;
+#X obj 193 4 else/note 425 20 Menlo empty 0 0 0 0 0 255 255 255 0 0
+CONTROL + MATRIX CONTROLS;
+#N canvas 702 468 450 300 declare 0;
+#X obj 15 15 declare -lib else;
+#X obj 16 36 declare -path abs;
+#X restore 25 7 pd declare;
+#X obj 544 29 bng 40 250 50 0 empty empty empty 17 7 0 10 -262144 -1
+-1;
+#N canvas 634 1166 700 838 preset_1 0;
+#X obj 228 83 inlet;
+#X msg 35 203 \; 1-root-micro-eucl-r 12 \; 1-radicando-micro-eucl-r
+2 \; 1-tonic.micro-eucl-r 20 \;;
+#X msg 426 208 \; 2-1-note-eucl-r 36 \; 2-2-note-eucl-r 23 \; 2-3-note-eucl-r
+15 \; 2-4-note-eucl-r 27 \; 2-5-note-eucl-r 39 \; 2-6-note-eucl-r 33
+\; 2-7-note-eucl-r 43 \; 2-8-note-eucl-r 35 \; 2-9-note-eucl-r 48 \;
+2-10-note-eucl-r 21 \; 2-11-note-eucl-r 45 \; 2-12-note-eucl-r 25 \;
+2-13-note-eucl-r 21 \; 2-14-note-eucl-r 35 \; 2-15-note-eucl-r 52 \;
+2-16-note-eucl-r 18 \; 2-17-note-eucl-r 26 \; 2-18-note-eucl-r 43 \;
+2-19-note-eucl-r 23 \; 2-20-note-eucl-r 62 \; 2-21-note-eucl-r 17 \;
+2-22-note-eucl-r 12 \; 2-23-note-eucl-r 52 \; 2-24-note-eucl-r 26 \;
+2-25-note-eucl-r 48 \; 2-26-note-eucl-r 19 \; 2-27-note-eucl-r 29 \;
+2-28-note-eucl-r 36 \; 2-29-note-eucl-r 55 \; 2-30-note-eucl-r 31 \;
+2-31-note-eucl-r 20 \; 2-32-note-eucl-r 12 \;;
+#X msg 248 200 \; 1-1-note-eucl-r 43 \; 1-2-note-eucl-r 12 \; 1-3-note-eucl-r
+25 \; 1-4-note-eucl-r 31 \; 1-5-note-eucl-r 16 \; 1-6-note-eucl-r 29
+\; 1-7-note-eucl-r 12 \; 1-8-note-eucl-r 18 \; 1-9-note-eucl-r 31 \;
+1-10-note-eucl-r 45 \; 1-11-note-eucl-r 61 \; 1-12-note-eucl-r 21 \;
+1-13-note-eucl-r 19 \; 1-14-note-eucl-r 25 \; 1-15-note-eucl-r 13 \;
+1-16-note-eucl-r 33 \; 1-17-note-eucl-r 17 \; 1-18-note-eucl-r 31 \;
+1-19-note-eucl-r 40 \; 1-20-note-eucl-r 51 \; 1-21-note-eucl-r 46 \;
+1-22-note-eucl-r 36 \; 1-23-note-eucl-r 28 \; 1-24-note-eucl-r 21 \;
+1-25-note-eucl-r 40 \; 1-26-note-eucl-r 12 \; 1-27-note-eucl-r 8 \;
+1-28-note-eucl-r 15 \; 1-29-note-eucl-r 34 \; 1-30-note-eucl-r 47 \;
+1-31-note-eucl-r 55 \; 1-32-note-eucl-r 30 \;;
+#X text 243 671 11 Hits \, 32 Lenght;
+#X text 242 689 Tempo 80 BPM;
+#X text 37 266 Never throw it!;
+#X connect 0 0 3 0;
+#X connect 0 0 2 0;
+#X restore 544 71 pd preset_1;
+#X obj 541 2 else/note 425 20 Menlo empty 0 0 0 0 0 255 255 255 0 0
+PRESETS;
+#X obj 367 306 else/note 425 20 Menlo empty 0 0 0 0 0 255 255 255 0
+0 First Granulator;
+#X obj 1626 496 else/note 425 20 Menlo empty 0 0 0 0 0 255 255 255
+0 0 FX + BUS;
+#X text 1365 226 Sine --> Shape \; Tri --> Colour \; Saw --> Timbre
+\;;
+#X obj 26 505 eucl-seq 2;
+#X obj 997 505 lfo 2;
+#X obj 225 626 vsl 15 128 0 1 0 1 empty empty vol 0 -9 0 10 -192510
+-1 -1 0 1;
+#X obj 229 304 vsl 15 128 0 1 0 1 empty empty vol 0 -9 0 10 -81216
+-1 -1 0 1;
+#X obj 646 333 vsl 15 128 0 0.3 0 1 empty empty vol 0 -9 0 10 -219904
+-1 -1 12700 1;
+#X obj 998 478 else/note 425 20 Menlo empty 0 0 0 0 0 255 255 255 0
+0 LFO 2 --> Braids 2;
+#X obj 26 776 throw~ braids2;
+#X obj 364 482 throw~ grains1;
+#X obj 1524 48 else/mtx.ctl 12 22 20 0 0 0 0 0 0 0 0 0 0 0 0;
+#X text 1487 170 out1;
+#X text 1486 189 out2;
+#X obj 1524 490 s matrix;
+#X text 1487 229 out4;
+#X text 1487 209 out3;
+#X text 1488 249 out5;
+#X text 1487 268 out6;
+#X text 1488 288 out7;
+#X text 1488 308 out8;
+#X text 1487 329 out9;
+#X text 1486 350 out10;
+#X text 1481 371 out11;
+#X text 1480 392 out12;
+#X text 1483 412 out13;
+#X text 1481 431 out14;
+#X text 1480 452 out15;
+#X text 1480 472 out16;
+#X text 1515 31 br1;
+#X text 1540 31 br2;
+#X text 1638 31 cl1;
+#X text 1499 51 cl1;
+#X obj 1535 6 else/note 425 18 Menlo empty 0 0 0 0 0 255 255 255 0
+0 AMBISONICS MATRIX;
+#X text 1785 179 Vertical = Output;
+#X text 1785 163 Horizontal =Input;
+#X obj 1688 816 abs/rings;
+#X obj 253 661 wavetable_synth;
+#X obj 251 632 else/note 425 20 Menlo empty 0 0 0 0 0 255 255 255 0
+0 First Wavetable Synthesizer;
+#X obj 767 696 element_MI;
+#X obj 829 642 else/note 425 20 Menlo empty 0 0 0 0 0 255 255 255 0
+0 Physical Modeling Synth - ADC~;
+#X obj 1267 696 vsl 15 260 0 1 0 1 empty empty vol 0 -9 0 10 -4032
+-1 -1 25900 1;
+#X obj 768 982 throw~ physical_1;
+#X obj 250 980 throw~ wavetable;
+#X obj 702 661 vsl 15 295 0 0.3 0 1 empty empty vol 0 -9 0 10 -191407
+-1 -1 0 1;
+#X text 1564 31 ph1;
+#X obj 1785 793 catch~ rings;
+#X text 1483 90 rings;
+#X text 1686 31 rg;
+#X obj 1691 986 throw~ rings1;
+#X obj 364 462 abs/interpolating~;
+#X obj 29 435 abs/interpolating~;
+#X obj 25 754 abs/interpolating~;
+#X obj 251 961 abs/interpolating~;
+#X obj 768 961 abs/interpolating~;
+#X text 1588 31 gr;
+#X obj 1335 676 abs/clouds~ 1;
+#X text 1702 31 cl2;
+#X text 1496 108 cl2;
+#X obj 1335 656 catch~ clouds2;
+#X obj 1668 673 feedback_delay;
+#X obj 1668 652 catch~ fb_delay;
+#X text 1460 70 fb_delay;
+#X text 1663 31 del;
+#X obj 1335 796 throw~ clouds3;
+#X obj 1668 793 throw~ fb_delay1;
+#X text 1782 420 0 = granulator \; 1 = stretching \; 2 = looping \;
+3 = Spectral \;;
+#X obj 644 28 abs/lfo 3;
+#X obj 643 1 else/note 425 20 Menlo empty 0 0 0 0 0 255 255 255 0 0
+LFO 3 --> Feedback Delay Lines;
+#X obj 644 148 s rate_del;
+#X obj 1777 653 r rate_del;
+#X obj 784 148 s del;
+#X obj 1850 652 r del;
+#X obj 943 148 s fb;
+#X obj 1857 620 r fb;
+#X obj 1095 27 abs/lfo 4;
+#X obj 1094 1 else/note 425 20 Menlo empty 0 0 0 0 0 255 255 255 0
+0 LFO 4 --> Physical Modeling;
+#X text 1621 31 wt;
+#X obj 687 332 second_granulator;
+#X obj 689 308 else/note 425 20 Menlo empty 0 0 0 0 0 255 255 255 0
+0 Second Granulator;
+#X obj 689 449 abs/interpolating~;
+#X obj 958 317 vsl 15 128 0 0.3 0 1 empty empty vol 0 -9 0 10 -159808
+-1 -1 0 1;
+#X obj 689 467 throw~ grains2;
+#X text 1605 31 g2;
+#X obj 1011 83 s pitch_phy;
+#X obj 767 677 r pitch_phy;
+#X obj 1044 677 r blow_phy;
+#X obj 1185 677 r mod_phy;
+#X obj 1271 152 s blow_phy;
+#X obj 1388 149 s mod_phy;
+#X obj 1332 843 freeze;
+#X obj 1333 824 catch~ freeze0;
+#X obj 1332 983 throw~ freeze1;
+#X text 1727 31 fr1;
+#X text 1471 129 freeze;
+#X obj 997 333 clouds~ 2;
+#X obj 1333 347 else/note 425 15 Menlo empty 0 0 0 0 0 255 255 255
+0 0 another FX;
+#X obj 1335 390 else/note 425 15 Menlo empty 0 0 0 0 0 255 255 255
+0 0 <---------;
+#X obj 1334 368 else/note 425 15 Menlo empty 0 0 0 0 0 255 255 255
+0 0 cl 3;
+#X obj 996 311 catch~ clouds4;
+#X obj 996 451 throw~ clouds5;
+#X text 1753 31 cl3;
+#X text 1495 149 cl3;
+#X obj 544 100 bng 40 250 50 0 empty empty empty 17 7 0 10 -262144
+-1 -1;
+#N canvas 634 1166 411 648 preset_2 0;
+#X obj 37 25 inlet;
+#X msg 57 142 \; 1-1-note-eucl-r 11 \; 1-2-note-eucl-r 35 \; 1-3-note-eucl-r
+15 \; 1-4-note-eucl-r 46 \; 1-5-note-eucl-r 7 \; 1-6-note-eucl-r 3
+\; 1-7-note-eucl-r 25 \; 1-8-note-eucl-r 59 \; 1-9-note-eucl-r 15 \;
+1-10-note-eucl-r 32 \; 1-11-note-eucl-r 11 \; 1-12-note-eucl-r 28 \;
+1-13-note-eucl-r 7 \; 1-14-note-eucl-r 45 \; 1-15-note-eucl-r 18 \;
+1-16-note-eucl-r 26 \; 1-17-note-eucl-r 33 \; 1-18-note-eucl-r 47 \;
+1-19-note-eucl-r 55 \; 1-20-note-eucl-r 12 \; 1-21-note-eucl-r 16 \;
+1-22-note-eucl-r 19 \; 1-23-note-eucl-r 68 \; 1-24-note-eucl-r 13 \;
+1-25-note-eucl-r 29 \; 1-26-note-eucl-r 18 \; 1-27-note-eucl-r 11 \;
+1-28-note-eucl-r 19 \; 1-29-note-eucl-r 26 \; 1-30-note-eucl-r 32 \;
+1-31-note-eucl-r 59 \; 1-32-note-eucl-r 33 \;;
+#X msg 235 150 \; 2-1-note-eucl-r 8 \; 2-2-note-eucl-r 12 \; 2-3-note-eucl-r
+21 \; 2-4-note-eucl-r 30 \; 2-5-note-eucl-r 12 \; 2-6-note-eucl-r 26
+\; 2-7-note-eucl-r 11 \; 2-8-note-eucl-r 29 \; 2-9-note-eucl-r 8 \;
+2-10-note-eucl-r 35 \; 2-11-note-eucl-r 12 \; 2-12-note-eucl-r 18 \;
+2-13-note-eucl-r 13 \; 2-14-note-eucl-r 28 \; 2-15-note-eucl-r 15 \;
+2-16-note-eucl-r 12 \; 2-17-note-eucl-r 28 \; 2-18-note-eucl-r 38 \;
+2-19-note-eucl-r 20 \; 2-20-note-eucl-r 16 \; 2-21-note-eucl-r 12 \;
+2-22-note-eucl-r 19 \; 2-23-note-eucl-r 32 \; 2-24-note-eucl-r 22 \;
+2-25-note-eucl-r 15 \; 2-26-note-eucl-r 45 \; 2-27-note-eucl-r 26 \;
+2-28-note-eucl-r 51 \; 2-29-note-eucl-r 14 \; 2-30-note-eucl-r 27 \;
+2-31-note-eucl-r 36 \; 2-32-note-eucl-r 10 \;;
+#X connect 0 0 1 0;
+#X connect 0 0 2 0;
+#X restore 544 142 pd preset_2;
+#X obj 1774 510 else/note 425 15 Menlo empty 0 0 0 0 0 255 255 255
+0 0 cl 1;
+#X obj 1336 636 else/note 425 15 Menlo empty 0 0 0 0 0 255 255 255
+0 0 cl 2;
+#X obj 1459 820 else/note 425 15 Menlo empty 0 0 0 0 0 255 255 255
+0 0 fr1;
+#X connect 0 0 1 3;
+#X connect 0 1 1 2;
+#X connect 0 2 1 1;
+#X connect 1 0 69 0;
+#X connect 4 0 1 0;
+#X connect 5 0 70 0;
+#X connect 6 0 68 0;
+#X connect 8 0 11 0;
+#X connect 8 1 11 0;
+#X connect 9 0 8 0;
+#X connect 15 0 16 0;
+#X connect 21 0 5 0;
+#X connect 22 0 5 3;
+#X connect 22 1 5 2;
+#X connect 22 2 5 1;
+#X connect 23 0 70 1;
+#X connect 24 0 69 1;
+#X connect 25 0 68 1;
+#X connect 29 0 32 0;
+#X connect 54 0 67 0;
+#X connect 54 1 67 0;
+#X connect 55 0 71 0;
+#X connect 55 1 71 0;
+#X connect 57 0 72 0;
+#X connect 57 1 72 0;
+#X connect 59 0 72 1;
+#X connect 62 0 71 1;
+#X connect 64 0 54 0;
+#X connect 64 0 54 1;
+#X connect 68 0 28 0;
+#X connect 69 0 7 0;
+#X connect 70 0 27 0;
+#X connect 71 0 61 0;
+#X connect 72 0 60 0;
+#X connect 74 0 82 0;
+#X connect 74 1 82 0;
+#X connect 77 0 74 0;
+#X connect 78 0 83 0;
+#X connect 79 0 78 0;
+#X connect 85 0 87 0;
+#X connect 85 1 89 0;
+#X connect 85 2 91 0;
+#X connect 88 0 78 1;
+#X connect 90 0 78 2;
+#X connect 92 0 78 4;
+#X connect 93 0 102 0;
+#X connect 93 1 106 0;
+#X connect 93 2 107 0;
+#X connect 96 0 98 0;
+#X connect 98 0 100 0;
+#X connect 99 0 98 1;
+#X connect 103 0 57 0;
+#X connect 104 0 57 5;
+#X connect 105 0 57 7;
+#X connect 108 0 110 0;
+#X connect 109 0 108 0;
+#X connect 113 0 118 0;
+#X connect 117 0 113 0;
+#X connect 121 0 122 0;
