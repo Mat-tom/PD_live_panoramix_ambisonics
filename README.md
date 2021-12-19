@@ -2,6 +2,9 @@
 
 ![Schermata 2021-12-19 alle 18 15 19](https://user-images.githubusercontent.com/79996126/146684207-003801e5-def1-442b-bd87-d53b14bccfa3.png)
  
+**History and Abstract of the project**
+-----------------------------------------------------------------------------------------------------------------------------------------------------------------
+
 Small framework for playing in Pure Data and handling Ambisonics spatialization via Panoramix.
 Pure Data is used as a sound generation engine and Panoramix is used as software for real-time Ambisonics spatialization. 
 Panoramix is a post-production workstation for 3D audio contents. This open source software offers a comprehensive environment for mixing, reverberating, and spatializing sound materials and it is developed by Ircam [https://www.ircam.fr/].
@@ -37,7 +40,19 @@ One digital reverberator
 One feedback delay
 One "Freeze" Algorithm
 
-To find out how to connect via OSC Pure Data to Panoramix or for any other information please email me at matteotomasetti@libero.it
+**How to use it**
+-----------------------------------------------------------------------------------------------------------------------------------------------------------------
+Open the file containing the main_patch named "main_5_Ambisonics__JULY" in Pure Data.
+All abstractions of the main_patch are in the folder "abs" together with samples and stavesave (yet to be implemented).
+
+To connect PureData to Panoramix you need to do a routing via a virtual sound card (e.g. Loopback, Jack) and send the output of PD to the input of Panoramix.
+For the project I always used the sample rate set to 48 Khz.
+
+Now open Panoramix and load the file "PD_Panoramix_0.3.txt" into Panoramix.
+The sound should already be set with Ambisonics encoding (5th order) and binaural decoding.
+
+For any other information please email me at matteotomasetti@libero.it
+
 
 **Contributors**
 -----------------------------------------------------------------------------------------------------------------------------------------------------------------
