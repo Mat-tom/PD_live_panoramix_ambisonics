@@ -1,0 +1,238 @@
+#N canvas 607 1154 1270 767 12;
+#X obj 297 545 *~;
+#X obj 327 91 vsl 15 50 0 1 0 0 empty empty Main_out -15 -9 0 10 -258113
+-1 -1 0 1;
+#X obj 322 40 tgl 30 0 empty empty empty 17 7 0 10 -262144 -1 -1 1
+1;
+#X obj 352 569 rev2~ 100 90 3000 20;
+#X obj 390 96 vsl 15 50 80 100 0 0 empty empty Reverb_Decay -20 -9
+0 10 -159808 -1 -1 2600 1;
+#N canvas 0 23 450 278 (subpatch) 0;
+#X array array2 100 float 1;
+#A 0 0.228543 0.174577 0.120611 0.0666456 0.0126797 -0.0412862 -0.0952521
+-0.214285 -0.207143 -0.17143 -0.0142851 -0.0142851 -0.0199991 -0.0257132
+-0.0314272 -0.0371412 -0.0428553 -0.0428553 -0.0428553 -0.0482122 -0.0535691
+-0.058926 -0.0642829 -0.0696398 -0.0749967 -0.0803536 -0.0999956 -0.0857105
+-0.0571404 -0.00714254 0.0428553 0.0928531 0.142851 0.185706 0.185706
+0.179992 0.174278 0.168564 0.16285 0.157136 0.142851 0.13928 0.135708
+0.132137 0.128566 0.128566 0.128566 0.123804 0.119042 0.114281 0.114281
+0.114281 0.114281 0.128566 0.142851 0.171421 0.199991 0.242846 0.242846
+0.285702 0.314272 0.342842 0.385697 0.399982 0.399982 0.399982 0.399982
+0.399982 0.399982 0.396411 0.39284 0.389269 0.371412 0.371412 0.342842
+0.314272 0.299987 0.285702 0.271417 0.242846 0.242846 0.233323 0.2238
+0.214276 0.214276 0.210705 0.207134 0.203562 0.185706 0.185706 0.179992
+0.174278 0.168564 0.16285 0.142851 0.138089 0.133327 0.128566 0.078568
+-0.314272;
+#X coords 0 -1 99 1 263 140 1 0 0;
+#X restore 57 155 graph;
+#X obj 347 162 vsl 15 128 0 635 0 0 empty empty FM_amount -15 -9 0
+10 -261682 -1 -1 500 1;
+#X obj 209 22 vsl 15 120 0 4.23 0 0 empty empty Main_LFO_Rate -30 -9
+0 10 -204800 -1 -1 1800 1;
+#X obj 263 23 vsl 15 120 0 1 0 0 empty empty LFO_depth 0 -9 0 10 -204786
+-1 -1 5100 1;
+#X text 309 20 START LFO;
+#X obj 390 17 bng 20 250 50 0 empty empty Random_Pitch -10 -10 1 10
+-204800 -1 -1;
+#X obj 388 57 bng 20 250 50 0 empty empty Random_FM -10 -10 1 10 -233344
+-1 -1;
+#N canvas 758 1341 450 197 random_FM 0;
+#X obj 99 36 inlet;
+#X obj 263 84 expr random (50 \, 127);
+#X obj 43 126 expr random (100 \, 635);
+#X obj 44 153 s random3;
+#X obj 258 122 s random4;
+#X connect 0 0 2 0;
+#X connect 0 0 1 0;
+#X connect 1 0 4 0;
+#X connect 2 0 3 0;
+#X restore 717 206 pd random_FM;
+#N canvas 876 1503 430 215 random_pitch 0;
+#X obj 100 24 inlet;
+#X obj 49 144 s random1;
+#X obj 227 135 s random2;
+#X obj 48 118 expr random (10 \, 100);
+#X obj 226 109 expr random (10 \, 100);
+#X connect 0 0 3 0;
+#X connect 0 0 4 0;
+#X connect 3 0 1 0;
+#X connect 4 0 2 0;
+#X restore 720 128 pd random_pitch;
+#X obj 370 493 r mainout;
+#X obj 903 629 s mainout;
+#X obj 641 727 s lfo;
+#X obj 476 159 r lfo;
+#X obj 809 623 s reverb;
+#X obj 420 543 r reverb;
+#N canvas 0 23 310 382 mat-lfo 0;
+#X obj 36 37 inlet;
+#X obj 92 40 inlet;
+#X obj 176 39 inlet;
+#X obj 80 209 snapshot~;
+#X floatatom 80 232 5 0 0 0 - - -;
+#X msg 168 162 bang, f 5;
+#X floatatom 55 105 5 0 0 0 - - -;
+#X obj 55 132 osc~;
+#X obj 80 169 *~;
+#X floatatom 111 135 5 0 0 0 - - -;
+#X obj 168 139 metro 1;
+#X obj 85 281 outlet;
+#X connect 0 0 6 0;
+#X connect 1 0 9 0;
+#X connect 2 0 10 0;
+#X connect 3 0 4 0;
+#X connect 4 0 11 0;
+#X connect 5 0 3 0;
+#X connect 6 0 7 0;
+#X connect 7 0 8 0;
+#X connect 8 0 3 0;
+#X connect 9 0 8 1;
+#X connect 10 0 5 0;
+#X restore 641 702 pd mat-lfo;
+#N canvas 373 205 1241 715 two_osc_test_april 0;
+#X obj 317 622 *~;
+#X obj 148 545 +~, f 4;
+#X obj 99 180 mtof;
+#X obj 426 476 *~;
+#X obj 254 345 *~;
+#X floatatom 444 318 5 0 0 0 - - -;
+#X obj 82 298 osc~;
+#X obj 468 605 +~, f 4;
+#X obj 221 158 mtof;
+#X obj 694 529 *~;
+#X obj 633 292 *~;
+#X floatatom 784 472 5 0 0 0 - - -;
+#X obj 576 244 osc~;
+#X obj 950 141 osc~;
+#X obj 930 182 *~;
+#X obj 951 107 mtof;
+#X floatatom 1160 202 5 0 0 0 - - -;
+#X obj 83 256 +~, f 4;
+#X obj 543 186 +~, f 4;
+#X obj 325 437 tabread~ array2;
+#X obj 333 369 +~ 1;
+#X obj 333 404 *~ 50;
+#X obj 651 425 tabread~ array2;
+#X obj 657 351 +~ 1;
+#X obj 652 389 *~ 50;
+#X floatatom 309 322 5 0 0 0 - - -;
+#X obj 317 251 - 1;
+#X obj 313 293 * -1;
+#X floatatom 671 155 5 0 0 0 - - -;
+#X obj 657 85 - 1;
+#X obj 661 123 * -1;
+#X obj 20 127 r random1;
+#X floatatom 92 217 5 0 0 0 - - -;
+#X obj 101 26 inlet;
+#X obj 200 50 inlet;
+#X obj 334 73 inlet;
+#X obj 496 98 inlet;
+#X obj 644 34 inlet;
+#X obj 818 338 inlet;
+#X obj 989 3 inlet;
+#X obj 1166 11 inlet;
+#X obj 388 558 inlet;
+#X obj 306 662 outlet~;
+#X text 15 26 osc_pitch-1;
+#X text 182 22 osc_pitch-2;
+#X text 1095 8 FM amount;
+#X text 891 2 FM mod pitch;
+#X text 804 312 X-Fade Wavetable;
+#X text 603 13 X-Fade Wavetable;
+#X text 300 47 X-Fade Wavetable;
+#X text 480 71 X-Fade Wavetable;
+#X obj 227 111 r random2;
+#X obj 885 51 r random3;
+#X obj 1082 130 r random4;
+#X floatatom 202 207 5 0 0 0 - - -;
+#X connect 0 0 42 0;
+#X connect 1 0 0 0;
+#X connect 2 0 32 0;
+#X connect 3 0 1 0;
+#X connect 4 0 1 0;
+#X connect 4 0 20 0;
+#X connect 5 0 3 1;
+#X connect 6 0 4 0;
+#X connect 7 0 0 0;
+#X connect 8 0 18 0;
+#X connect 8 0 54 0;
+#X connect 9 0 7 0;
+#X connect 10 0 7 0;
+#X connect 10 0 23 0;
+#X connect 11 0 9 1;
+#X connect 12 0 10 0;
+#X connect 13 0 14 0;
+#X connect 14 0 18 1;
+#X connect 14 0 17 1;
+#X connect 15 0 13 0;
+#X connect 16 0 14 1;
+#X connect 17 0 6 0;
+#X connect 18 0 12 0;
+#X connect 19 0 3 0;
+#X connect 20 0 21 0;
+#X connect 21 0 19 0;
+#X connect 22 0 9 0;
+#X connect 23 0 24 0;
+#X connect 24 0 22 0;
+#X connect 25 0 4 1;
+#X connect 26 0 27 0;
+#X connect 27 0 25 0;
+#X connect 28 0 10 1;
+#X connect 29 0 30 0;
+#X connect 30 0 28 0;
+#X connect 31 0 2 0;
+#X connect 32 0 17 0;
+#X connect 33 0 2 0;
+#X connect 34 0 8 0;
+#X connect 35 0 26 0;
+#X connect 36 0 5 0;
+#X connect 37 0 29 0;
+#X connect 38 0 11 0;
+#X connect 39 0 15 0;
+#X connect 40 0 16 0;
+#X connect 41 0 0 1;
+#X connect 51 0 8 0;
+#X connect 52 0 15 0;
+#X connect 53 0 16 0;
+#X restore 207 444 pd two_osc_test_april;
+#X f 27;
+#X floatatom 558 434 5 0 0 0 - - -;
+#X floatatom 6 40 5 0 127 2 Osc1-Pitch - -;
+#X floatatom 82 42 5 0 127 2 Osc2-Pitch - -;
+#X obj 6 83 hsl 128 15 0 1 0 0 \$1-xfade-wt-s \$1-xfade-wt-r X-Fade
+-2 -8 0 10 -4034 -1 -1 6700 1;
+#X obj 7 114 hsl 128 15 0 127 0 0 empty empty Mod_FM_Pitch -2 -8 0
+10 -260097 -1 -1 6400 1;
+#X floatatom 142 126 5 0 635 2 FM_Amount - -;
+#X msg 425 310 0.6;
+#X obj 453 244 loadbang;
+#X text 22 301 comment;
+#X obj 332 610 outlet~;
+#X obj 403 615 outlet~;
+#X connect 0 0 3 0;
+#X connect 1 0 15 0;
+#X connect 2 0 20 2;
+#X connect 3 0 31 0;
+#X connect 3 1 32 0;
+#X connect 4 0 18 0;
+#X connect 6 0 21 8;
+#X connect 6 0 22 0;
+#X connect 7 0 20 0;
+#X connect 8 0 20 1;
+#X connect 10 0 13 0;
+#X connect 11 0 12 0;
+#X connect 14 0 0 1;
+#X connect 17 0 1 0;
+#X connect 19 0 3 2;
+#X connect 20 0 16 0;
+#X connect 21 0 0 0;
+#X connect 23 0 21 0;
+#X connect 24 0 21 1;
+#X connect 25 0 21 2;
+#X connect 25 0 21 4;
+#X connect 25 0 21 5;
+#X connect 25 0 21 6;
+#X connect 26 0 21 7;
+#X connect 28 0 21 3;
+#X connect 29 0 28 0;
+#X coords 0 -1 1 1 450 300 1 0 0;

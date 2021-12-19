@@ -1,0 +1,35 @@
+#N canvas 340 1270 482 529 10;
+#X obj 49 68 inlet;
+#X obj 106 131 inlet;
+#X obj 49 267 select 1;
+#X obj 49 299 outlet;
+#X obj 162 185 inlet;
+#X obj 49 202 % \$3;
+#X text 48 379 Generates 'euclidean rhythms' (see cgm.cs.mcgill.ca/~godfried/publications/banff.pdf).
+Ideally to be used with a [metro]-powered [f ]x[+ 1] counter attached
+to the first inlet. Hits per bar \, offset and bar length can be set
+by the first three arguments respectively.;
+#X obj 49 137 + \$2;
+#X obj 49 169 * \$1;
+#X obj 49 235 < \$1;
+#X obj 133 156 inlet;
+#X obj 174 300 outlet;
+#X text 145 130 specifica il numero desiderato di trigger per barra
+;
+#X text 167 155 offset/rotazione;
+#X text 208 182 specifica la lunghezza della barra;
+#X text 111 266 <-- Triggera con l'uscita di 1 \, silenzio nel resto
+;
+#X text 88 66 <-- Riceve un numero integer dal loop per vedere se secondo
+la sequenza euclidea ci debba essere un trigger;
+#X connect 0 0 7 0;
+#X connect 1 0 8 1;
+#X connect 1 0 9 1;
+#X connect 2 0 3 0;
+#X connect 4 0 5 1;
+#X connect 5 0 9 0;
+#X connect 7 0 8 0;
+#X connect 8 0 5 0;
+#X connect 9 0 2 0;
+#X connect 9 0 11 0;
+#X connect 10 0 7 1;
