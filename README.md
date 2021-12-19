@@ -38,3 +38,8 @@ One feedback delay
 One "Freeze" Algorithm
 
 To find out how to connect via OSC Pure Data to Panoramix or for any other information please email me at matteotomasetti@libero.it
+
+**Contributors**
+-----------------------------------------------------------------------------------------------------------------------------------------------------------------
+• Francesco Casanova
+
