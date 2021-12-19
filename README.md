@@ -35,10 +35,14 @@ These 6 sound generation modules in turn can be sent, through send/receive objec
 Furthermore, in the audio matrix, we have the 16 outputs that are sent to the Panoramix software that takes care of the Ambisonics spatialization of the sound.
 
 At the moment the modules that deal with the FX are the following six:
-Three granular audio processors 
-• One digital reverberator
+
+• Three granular audio processors 
+
+• One digital reverb
+
 • One feedback delay
-• One "Freeze" Algorithm
+
+• One "Freeze" algorithm
 
 **How to use it**
 -----------------------------------------------------------------------------------------------------------------------------------------------------------------
