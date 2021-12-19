@@ -2,7 +2,7 @@
 
 ![Schermata 2021-12-19 alle 18 15 19](https://user-images.githubusercontent.com/79996126/146684207-003801e5-def1-442b-bd87-d53b14bccfa3.png)
  
-**History and Abstract of the project**
+**History and abstract**
 -----------------------------------------------------------------------------------------------------------------------------------------------------------------
 
 Small framework for playing in Pure Data and handling Ambisonics spatialization via Panoramix.
