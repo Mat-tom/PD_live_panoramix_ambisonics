@@ -52,10 +52,11 @@ All abstractions of the main_patch are in the folder "abs" together with samples
 To connect PureData to Panoramix you need to do a routing via a virtual sound card (e.g. Loopback, Jack) and send the output of PD to the input of Panoramix.
 For the project I always used the sample rate set to 48 Khz.
 For the realization of this first prototype I used a MacOS system and the virtual sound card "Loopback".
-Always make sure that the output of the Pure Data project is set up like this screenshot of "Loopback" on your virtual sound card:
+Always make sure that the output of the Pure Data project is set up like this screenshot of "Loopback" on your virtual sound card (bypassing "ZoomAudioDevice"):
 
 ![Screenshot_LoopBack](https://user-images.githubusercontent.com/79996126/146686544-ab594126-0a7a-421a-b37a-e7b59542859a.png)
 
+Fireface UFX is my output, but you will have your own sound card there.
 Now open Panoramix and load the file "PD_Panoramix_0.3.txt" into Panoramix.
 The sound should already be set with Ambisonics encoding (5th order) and binaural decoding.
 
