@@ -1,4 +1,4 @@
-# PD_live_panoramix_ambisonics
+# PureData_live_Panoramix_ambisonics
 
 ![Schermata 2021-12-19 alle 18 15 19](https://user-images.githubusercontent.com/79996126/146684207-003801e5-def1-442b-bd87-d53b14bccfa3.png)
  
@@ -23,22 +23,22 @@ For the realization of the project various external open source libraries were u
 
 The framework, currently, consists of the following modules related to sound generation: 
 
-Two "Braids" macro-oscillators which have been modified to my liking and which derive from the codes given free by Emilie Gillet of Mutable Instruments [https://mutable- instruments.net/].
+• Two "Braids" macro-oscillators which have been modified to my liking and which derive from the codes given free by Emilie Gillet of Mutable Instruments [https://mutable- instruments.net/].
 
-Two modules that make granular synthesis to different audio samples
+• Two modules that make granular synthesis to different audio samples
 
-One module that make wavetable synthesis
+• One module that make wavetable synthesis
      
-One module that allow the user to perform a physical model synthesis of an input signal
+• One module that allow the user to perform a physical model synthesis of an input signal
 
 These 6 sound generation modules in turn can be sent, through send/receive objects, to other 6 modules that act more as FX. At the moment we have a total of 6 modules for sound generation and 6 modules for processing the generated signal and all these send/receive objects are managed by an audio matrix.
 Furthermore, in the audio matrix, we have the 16 outputs that are sent to the Panoramix software that takes care of the Ambisonics spatialization of the sound.
 
 At the moment the modules that deal with the FX are the following six:
 Three granular audio processors 
-One digital reverberator
-One feedback delay
-One "Freeze" Algorithm
+• One digital reverberator
+• One feedback delay
+• One "Freeze" Algorithm
 
 **How to use it**
 -----------------------------------------------------------------------------------------------------------------------------------------------------------------
