@@ -58,7 +58,7 @@ Always make sure that the output of the Pure Data project is set up like this sc
 
 Fireface UFX is my output, but you will have your own sound card there.
 Now open Panoramix and load the file "PD_Panoramix_0.3.txt" into Panoramix.
-The sound should already be set with Ambisonics encoding (5th order) and binaural decoding.
+The sound should already be set with Ambisonics encoding (3rd order) and binaural decoding.
 
 For any other information or bug please email me at matteotomasetti@libero.it
 
