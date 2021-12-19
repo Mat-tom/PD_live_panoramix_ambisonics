@@ -9,7 +9,7 @@ Small framework for playing in Pure Data and handling Ambisonics spatialization 
 Pure Data is used as a sound generation engine and Panoramix is used as software for real-time Ambisonics spatialization. 
 Panoramix is a post-production workstation for 3D audio contents. This open source software offers a comprehensive environment for mixing, reverberating, and spatializing sound materials and it is developed by Ircam [https://www.ircam.fr/].
 
-There are still many changes to be made, but I would like to leave the possibility of modifying the framework to anyone.
+There are still many many (many) changes to be made, but I would like to leave the possibility of modifying the framework to anyone.
 The framework was realised during the "Computer Music Project" course with JOhannes Zmölnig from IEM (https://iem.kug.ac.at/) of Graz (AT).
 
 The idea was to develop a small framework that allows composers to work on different aspects of Live Electronics and 3D audio in Pure Data.
